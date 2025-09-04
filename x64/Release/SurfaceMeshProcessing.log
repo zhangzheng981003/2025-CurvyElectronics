@@ -1,0 +1,12 @@
+﻿   Qt/MSBuild: 3.4.1.0
+   Qt: 5.9.4
+  Moc'ing MeshViewer\InteractiveViewerWidget.h...
+  InteractiveViewerWidget.cpp
+  MainViewerWidget.cpp
+  surfacemeshprocessing.cpp
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+  moc_InteractiveViewerWidget.cpp
+  moc_MainViewerWidget.cpp
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+  SurfaceMeshProcessing.vcxproj -> D:\phd\work5\Surface_Framework\x64\Release\Surface_Mesh.exe
