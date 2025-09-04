@@ -4,6 +4,7 @@
 #include "MeshViewerWidget.h"
 #include "ANN\ANN.h"
 #include "Compute\Dijkstra_Path.h"
+#include "Compute\CGAL_Geodesic_Path.h"
 #include "Compute\CutMesh.h"
 #include "Compute\SeamMesh.h"
 #include <io.h>
@@ -33,6 +34,8 @@ public:
 			
 			if (dij_path) delete dij_path;
 			dij_path = new Dijkstra_Path(mesh);
+                        if (geo_path) delete geo_path;
+                        geo_path = new CGAL_Geodesic_Path(mesh);
 			
 			if (seam_mesh_) delete seam_mesh_;
 			seam_mesh_ = new SeamMesh(mesh);
@@ -44,6 +47,8 @@ public:
 			path_he.clear();
 			temp_path.clear();
 			temp_end_v = VH(-1);
+                        geo_path_points.clear();
+                        temp_geo_path.clear();
 		}
 
 		return read_status;
@@ -284,10 +289,16 @@ public slots:
 	}
 
 	void SeamEdit()
-	{
-		std::cout << "Seam edit!" << std::endl;
-		edit_mode_ = EditMode::SEAM_EDIT;
-	}
+        {
+                std::cout << "Seam edit!" << std::endl;
+                edit_mode_ = EditMode::SEAM_EDIT;
+        }
+
+        void GeodesicEdit()
+        {
+                std::cout << "Geodesic edit!" << std::endl;
+                edit_mode_ = EditMode::GEODESIC_EDIT;
+        }
 
 	void AddSeam()
 	{
@@ -317,41 +328,60 @@ public slots:
 		update();
 	}
 
-	void UndoSeam()
-	{
-		std::cout << "Undo Seam Edit!" << std::endl;
+        void UndoSeam()
+        {
+                std::cout << "Undo Seam Edit!" << std::endl;
 
-		if (edit_mode_ == EditMode::NON_EDIT)
-		{
-			cut_mesh_->UndoAdd();
+                if (edit_mode_ == EditMode::NON_EDIT)
+                {
+                        cut_mesh_->UndoAdd();
 
-			start_v.clear();
-			path_he.clear();
-			temp_path.clear();
-			temp_end_v = VH(-1);
-		}
-		else if (edit_mode_ == EditMode::SEAM_EDIT)
-		{
-			if (path_he.size() > 0)
-			{
-				path_he.pop_back();
-				start_v.pop_back();
+                        start_v.clear();
+                        path_he.clear();
+                        temp_path.clear();
+                        temp_end_v = VH(-1);
+                        geo_path_points.clear();
+                        temp_geo_path.clear();
+                }
+                else if (edit_mode_ == EditMode::SEAM_EDIT)
+                {
+                        if (path_he.size() > 0)
+                        {
+                                path_he.pop_back();
+                                start_v.pop_back();
 
-				temp_path.clear();
-				temp_end_v = VH(-1);
-			}
-			else if (start_v.size() > 0)
-			{
-				start_v.pop_back();
+                                temp_path.clear();
+                                temp_end_v = VH(-1);
+                        }
+                        else if (start_v.size() > 0)
+                        {
+                                start_v.pop_back();
 
-				temp_path.clear();
-				temp_end_v = VH(-1);
-			}
-		}
+                                temp_path.clear();
+                                temp_end_v = VH(-1);
+                        }
+                }
+                else if (edit_mode_ == EditMode::GEODESIC_EDIT)
+                {
+                        if (geo_path_points.size() > 0)
+                        {
+                                geo_path_points.pop_back();
+                                start_v.pop_back();
 
-		update();
-	}
+                                temp_geo_path.clear();
+                                temp_end_v = VH(-1);
+                        }
+                        else if (start_v.size() > 0)
+                        {
+                                start_v.pop_back();
 
+                                temp_geo_path.clear();
+                                temp_end_v = VH(-1);
+                        }
+                }
+
+                update();
+        }
 	void MeshCut()
 	{
 		std::cout << "Mesh Cut!" << std::endl;
@@ -590,7 +620,7 @@ public:
 private:
 	std::string fileDirPath = "";
 
-	enum class EditMode {NON_EDIT, SEAM_EDIT};
+	enum class EditMode {NON_EDIT, SEAM_EDIT, GEODESIC_EDIT};
 	EditMode edit_mode_ = EditMode::NON_EDIT;
 
 	std::vector<OpenMesh::VertexHandle> start_v;
@@ -599,6 +629,9 @@ private:
 	std::vector<OpenMesh::HalfedgeHandle> temp_path;
 
 	Dijkstra_Path* dij_path = NULL;
+        std::vector<std::vector<OpenMesh::Vec3d>> geo_path_points;
+        std::vector<OpenMesh::Vec3d> temp_geo_path;
+        CGAL_Geodesic_Path* geo_path = NULL;
 
 	int cur_patch_id = 0;
 

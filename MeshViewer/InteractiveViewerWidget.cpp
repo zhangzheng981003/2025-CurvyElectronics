@@ -29,6 +29,8 @@ InteractiveViewerWidget::~InteractiveViewerWidget()
 
 	if (dij_path) delete dij_path;
 
+        if (geo_path) delete geo_path;
+
 	if (seam_mesh_) delete seam_mesh_;
 }
 
@@ -67,7 +69,17 @@ void InteractiveViewerWidget::mouseMoveEvent(QMouseEvent *_event)
 				temp_path = dij_path->return_path();
 			}
 		}
-		else
+		else if (edit_mode_ == EditMode::GEODESIC_EDIT)
+                {
+                        pick_vertex(_event->x(), _event->y());
+                        temp_end_v = VH(lastestVertex);
+                        if (start_v.size() != 0)
+                        {
+                                geo_path->ComputePath(start_v.back(), temp_end_v);
+                                temp_geo_path = geo_path->return_path();
+                        }
+                }
+                else
 		{
 			MeshViewerWidget::mouseMoveEvent(_event);
 		}
@@ -91,6 +103,12 @@ void InteractiveViewerWidget::mouseReleaseEvent(QMouseEvent *_event)
 
 			//lastestVertex = -1;
 		}
+                else if (edit_mode_ == EditMode::GEODESIC_EDIT && lastestVertex != -1)
+                {
+                        temp_end_v = VH(lastestVertex);
+                        start_v.push_back(temp_end_v);
+                        geo_path_points.push_back(temp_geo_path);
+                }
 		else
 		{
 			MeshViewerWidget::mouseReleaseEvent(_event);
@@ -127,7 +145,7 @@ void InteractiveViewerWidget::dropEvent(QDropEvent* event)
 
 	if (fileName.endsWith(".off") || fileName.endsWith(".obj") || fileName.endsWith(".stl") || fileName.endsWith(".ply"))
 	{
-		//obj文件的目录
+		//obj募目录
 		fileDirPath = fileName.toStdString();
 		fileDirPath = fileDirPath.substr(0, fileDirPath.find_last_of("//"));
 		std::string mesh_name = fileName.toStdString().substr(fileName.toStdString().find_last_of("//"), fileName.toStdString().length());
@@ -140,17 +158,17 @@ void InteractiveViewerWidget::dropEvent(QDropEvent* event)
 
 		std::string patch_path = "Patches\\Patches";
 
-		if (_access((patch_path).c_str(), 0) != -1)//不存在
+		if (_access((patch_path).c_str(), 0) != -1)//
 		{
 			std::string cmd = "rmdir /Q /S " + patch_path;
 			system(cmd.c_str());
 			while (_access((patch_path).c_str(), 0) != -1)
 			{
-				std::cout << "删除中" << std::endl;
-				//等待删除完成
+				std::cout << "删" << std::endl;
+				//却删
 			}
 		}
-		//新建文件夹
+		//陆募
 		std::string cmd = "mkdir " + patch_path;
 		system(cmd.c_str());
 		cmd = "mkdir " + patch_path + "\\Patch_Para";
@@ -656,6 +674,19 @@ void InteractiveViewerWidget::draw_scene(int drawmode)
 				glVertex3dv(mesh.point(vh1).data());
 			}
 		}
+                for (const auto& single_path : geo_path_points)
+                {
+                        for (size_t i = 1; i < single_path.size(); ++i)
+                        {
+                                glVertex3dv(single_path[i - 1].data());
+                                glVertex3dv(single_path[i].data());
+                        }
+                }
+                for (size_t i = 1; i < temp_geo_path.size(); ++i)
+                {
+                        glVertex3dv(temp_geo_path[i - 1].data());
+                        glVertex3dv(temp_geo_path[i].data());
+                }
 		for (const HEH& he_h : temp_path)
 		{
 			auto vh0 = mesh.from_vertex_handle(he_h);
