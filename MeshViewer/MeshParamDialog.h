@@ -23,13 +23,14 @@ private:
 	QTabWidget* tabWidget;
 
 signals:
-	void print_info_signal();
+        void print_info_signal();
 
-	void NoEditSignal();
-	void SeamEditSignal();
-	void AddSeamSignal();
-	void UndoSeamSignal();
-	void MeshCutSignal();
+        void NoEditSignal();
+        void SeamEditSignal();
+        void GeodesicEditSignal();
+        void AddSeamSignal();
+        void UndoSeamSignal();
+        void MeshCutSignal();
 
 	void ChooseModelSignal(int);
 	
@@ -54,10 +55,11 @@ private:
 	void createWidget();
 	void createLayout();
 
-	void CreateCutMeshBox(void);
-	QGroupBox* cut_mesh_box_;
-	QRadioButton* rb_non_edit_;
-	QRadioButton* rb_seam_edit_;
+        void CreateCutMeshBox(void);
+        QGroupBox* cut_mesh_box_;
+        QRadioButton* rb_non_edit_;
+        QRadioButton* rb_seam_edit_;
+        QRadioButton* rb_geodesic_edit_;
 
 	void CreateViewPatchBox(void);
 	QGroupBox* view_patch_box_;
