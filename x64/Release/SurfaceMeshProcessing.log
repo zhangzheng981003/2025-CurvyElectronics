@@ -1,12 +1,120 @@
 ﻿   Qt/MSBuild: 3.4.1.0
+  Reading Qt configuration (D:/Qt/5.9.4/msvc2017_64/bin/qmake)
    Qt: 5.9.4
+  Rcc'ing surfacemeshprocessing.qrc...
+  Moc'ing surfacemeshprocessing.h...
+  Moc'ing MeshViewer\QGLViewerWidget.h...
+  Moc'ing MeshViewer\MeshViewerWidget.h...
   Moc'ing MeshViewer\InteractiveViewerWidget.h...
+  Moc'ing MeshViewer\MeshParamDialog.h...
+  Moc'ing MeshViewer\MainViewerWidget.h...
+  CGAL_Geodesic_Path.cpp
+  CutMesh.cpp
+  Dijkstra_Path.cpp
+  SeamMesh.cpp
+  ANN.cpp
+  bd_fix_rad_search.cpp
+  bd_pr_search.cpp
+  bd_search.cpp
+  bd_tree.cpp
+  brute.cpp
+  kd_dump.cpp
+  kd_fix_rad_search.cpp
+  kd_pr_search.cpp
+  kd_search.cpp
+  kd_split.cpp
+  kd_tree.cpp
+  kd_util.cpp
+  perf.cpp
+  main.cpp
   InteractiveViewerWidget.cpp
   MainViewerWidget.cpp
+  MeshDefinition.cpp
+  MeshParamDialog.cpp
+  MeshViewerWidget.cpp
+  QGLViewerWidget.cpp
   surfacemeshprocessing.cpp
-D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
-D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/MeshDefinition.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“Compute/CGAL_Geodesic_Path.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+      D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9):
+      请考虑在格式字符串中使用“%zd”
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+      D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9):
+      请考虑在格式字符串中使用“%zd”
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 3 拥有了类型“size_t”
+      D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9):
+      请考虑在格式字符串中使用“%zd”
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 4 拥有了类型“size_t”
+      D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\MeshViewerWidget.cpp(180,9):
+      请考虑在格式字符串中使用“%zd”
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/InteractiveViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“Compute/CGAL_Geodesic_Path.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“Compute/CGAL_Geodesic_Path.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/MainViewerWidget.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“surfacemeshprocessing.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/InteractiveViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/InteractiveViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/MainViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“MeshViewer/MainViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“surfacemeshprocessing.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“surfacemeshprocessing.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(261,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(261,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+  qrc_surfacemeshprocessing.cpp
+  moc_surfacemeshprocessing.cpp
+  moc_QGLViewerWidget.cpp
+  moc_MeshViewerWidget.cpp
   moc_InteractiveViewerWidget.cpp
+  moc_MeshParamDialog.cpp
   moc_MainViewerWidget.cpp
-D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(258,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_InteractiveViewerWidget.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Include\Eigen\src\Core\arch\CUDA\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_MainViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_InteractiveViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_InteractiveViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_MainViewerWidget.cpp”)
+  
+D:\Lib\CGAL-5.6.1\include\CGAL\boost\graph\Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“GeneratedFiles/Release/moc_MainViewerWidget.cpp”)
+  
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\MeshViewer\InteractiveViewerWidget.h(261,1): warning C4715: “InteractiveViewerWidget::ParaPatch”: 不是所有的控件路径都返回值
   SurfaceMeshProcessing.vcxproj -> D:\phd\work5\Surface_Framework\x64\Release\Surface_Mesh.exe

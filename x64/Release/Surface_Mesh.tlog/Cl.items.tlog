@@ -1,3 +1,4 @@
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Compute\CGAL_Geodesic_Path.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\CGAL_Geodesic_Path.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Compute\CutMesh.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\CutMesh.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Compute\Dijkstra_Path.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\Dijkstra_Path.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\Compute\SeamMesh.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\SeamMesh.obj
@@ -27,6 +28,6 @@ D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\qrc_surfacem
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_surfacemeshprocessing.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_surfacemeshprocessing.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_QGLViewerWidget.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_QGLViewerWidget.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_MeshViewerWidget.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_MeshViewerWidget.obj
+D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_InteractiveViewerWidget.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_InteractiveViewerWidget.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_MeshParamDialog.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_MeshParamDialog.obj
 D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_MainViewerWidget.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_MainViewerWidget.obj
-D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\GeneratedFiles\Release\moc_InteractiveViewerWidget.cpp;D:\phd\work5\Surface_Framework\SurfaceMeshProcessing\x64\Release\moc_InteractiveViewerWidget.obj

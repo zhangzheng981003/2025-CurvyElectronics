@@ -29,6 +29,8 @@ InteractiveViewerWidget::~InteractiveViewerWidget()
 
 	if (dij_path) delete dij_path;
 
+	if (geo_path) delete geo_path;
+
 	if (seam_mesh_) delete seam_mesh_;
 }
 
@@ -67,6 +69,16 @@ void InteractiveViewerWidget::mouseMoveEvent(QMouseEvent *_event)
 				temp_path = dij_path->return_path();
 			}
 		}
+		else if (edit_mode_ == EditMode::GEODESIC_EDIT)
+		{
+			pick_vertex(_event->x(), _event->y());
+			temp_end_v = VH(lastestVertex);
+			if (start_v.size() != 0)
+			{
+				geo_path->ComputePath(start_v.back(), temp_end_v);
+				temp_geo_path = geo_path->return_path();
+			}
+		}
 		else
 		{
 			MeshViewerWidget::mouseMoveEvent(_event);
@@ -90,6 +102,12 @@ void InteractiveViewerWidget::mouseReleaseEvent(QMouseEvent *_event)
 			path_he.push_back(temp_path);
 
 			//lastestVertex = -1;
+		}
+		else if (edit_mode_ == EditMode::GEODESIC_EDIT && lastestVertex != -1)
+		{
+			temp_end_v = VH(lastestVertex);
+			start_v.push_back(temp_end_v);
+			geo_path_points.push_back(temp_geo_path);
 		}
 		else
 		{
@@ -140,7 +158,7 @@ void InteractiveViewerWidget::dropEvent(QDropEvent* event)
 
 		std::string patch_path = "Patches\\Patches";
 
-		if (_access((patch_path).c_str(), 0) != -1)//²»´æÔÚ
+		if (_access((patch_path).c_str(), 0) != -1)//
 		{
 			std::string cmd = "rmdir /Q /S " + patch_path;
 			system(cmd.c_str());
@@ -644,6 +662,7 @@ void InteractiveViewerWidget::draw_scene(int drawmode)
 			}
 		}
 
+		//glColor3d(0.0, 1.0, 0.0);
 		for (const auto& single_path : path_he)
 		{
 			for (const HEH& he_h : single_path)
@@ -655,6 +674,21 @@ void InteractiveViewerWidget::draw_scene(int drawmode)
 				glNormal3dv(mesh.normal(vh1).data());
 				glVertex3dv(mesh.point(vh1).data());
 			}
+		}
+
+		//glColor3d(1.0, 0.0, 0.0);
+		for (const auto& single_path : geo_path_points)
+		{
+			for (size_t i = 1; i < single_path.size(); ++i)
+			{
+				glVertex3dv(single_path[i - 1].data());
+				glVertex3dv(single_path[i].data());
+			}
+		}
+		for (size_t i = 1; i < temp_geo_path.size(); ++i)
+		{
+			glVertex3dv(temp_geo_path[i - 1].data());
+			glVertex3dv(temp_geo_path[i].data());
 		}
 		for (const HEH& he_h : temp_path)
 		{

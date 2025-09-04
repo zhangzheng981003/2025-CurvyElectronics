@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_InteractiveViewerWidget_t {
-    QByteArrayData data[27];
-    char stringdata0[367];
+    QByteArrayData data[28];
+    char stringdata0[380];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,12 +52,13 @@ QT_MOC_LITERAL(17, 268, 17), // "set_t2_mouse_mode"
 QT_MOC_LITERAL(18, 286, 2), // "tm"
 QT_MOC_LITERAL(19, 289, 6), // "NoEdit"
 QT_MOC_LITERAL(20, 296, 8), // "SeamEdit"
-QT_MOC_LITERAL(21, 305, 7), // "AddSeam"
-QT_MOC_LITERAL(22, 313, 8), // "UndoSeam"
-QT_MOC_LITERAL(23, 322, 7), // "MeshCut"
-QT_MOC_LITERAL(24, 330, 12), // "Click_to_BPE"
-QT_MOC_LITERAL(25, 343, 11), // "std::string"
-QT_MOC_LITERAL(26, 355, 11) // "fileDirPath"
+QT_MOC_LITERAL(21, 305, 12), // "GeodesicEdit"
+QT_MOC_LITERAL(22, 318, 7), // "AddSeam"
+QT_MOC_LITERAL(23, 326, 8), // "UndoSeam"
+QT_MOC_LITERAL(24, 335, 7), // "MeshCut"
+QT_MOC_LITERAL(25, 343, 12), // "Click_to_BPE"
+QT_MOC_LITERAL(26, 356, 11), // "std::string"
+QT_MOC_LITERAL(27, 368, 11) // "fileDirPath"
 
     },
     "InteractiveViewerWidget\0mouse_press_signal\0"
@@ -68,8 +69,9 @@ QT_MOC_LITERAL(26, 355, 11) // "fileDirPath"
     "set_edit_redo_enable_viewer_signal\0"
     "ResetEditSignal\0render_text_slot\0pos\0"
     "str\0set_t2_mouse_mode\0tm\0NoEdit\0"
-    "SeamEdit\0AddSeam\0UndoSeam\0MeshCut\0"
-    "Click_to_BPE\0std::string\0fileDirPath"
+    "SeamEdit\0GeodesicEdit\0AddSeam\0UndoSeam\0"
+    "MeshCut\0Click_to_BPE\0std::string\0"
+    "fileDirPath"
 };
 #undef QT_MOC_LITERAL
 
@@ -79,7 +81,7 @@ static const uint qt_meta_data_InteractiveViewerWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,24 +89,25 @@ static const uint qt_meta_data_InteractiveViewerWidget[] = {
        8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   94,    2, 0x06 /* Public */,
-       5,    1,   97,    2, 0x06 /* Public */,
-       8,    1,  100,    2, 0x06 /* Public */,
-       9,    0,  103,    2, 0x06 /* Public */,
-      10,    1,  104,    2, 0x06 /* Public */,
-      11,    1,  107,    2, 0x06 /* Public */,
-      12,    1,  110,    2, 0x06 /* Public */,
-      13,    0,  113,    2, 0x06 /* Public */,
+       1,    1,   99,    2, 0x06 /* Public */,
+       5,    1,  102,    2, 0x06 /* Public */,
+       8,    1,  105,    2, 0x06 /* Public */,
+       9,    0,  108,    2, 0x06 /* Public */,
+      10,    1,  109,    2, 0x06 /* Public */,
+      11,    1,  112,    2, 0x06 /* Public */,
+      12,    1,  115,    2, 0x06 /* Public */,
+      13,    0,  118,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      14,    2,  114,    2, 0x0a /* Public */,
-      17,    1,  119,    2, 0x0a /* Public */,
-      19,    0,  122,    2, 0x0a /* Public */,
-      20,    0,  123,    2, 0x0a /* Public */,
-      21,    0,  124,    2, 0x0a /* Public */,
-      22,    0,  125,    2, 0x0a /* Public */,
-      23,    0,  126,    2, 0x0a /* Public */,
-      24,    1,  127,    2, 0x0a /* Public */,
+      14,    2,  119,    2, 0x0a /* Public */,
+      17,    1,  124,    2, 0x0a /* Public */,
+      19,    0,  127,    2, 0x0a /* Public */,
+      20,    0,  128,    2, 0x0a /* Public */,
+      21,    0,  129,    2, 0x0a /* Public */,
+      22,    0,  130,    2, 0x0a /* Public */,
+      23,    0,  131,    2, 0x0a /* Public */,
+      24,    0,  132,    2, 0x0a /* Public */,
+      25,    1,  133,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -124,7 +127,8 @@ static const uint qt_meta_data_InteractiveViewerWidget[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 25,   26,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 26,   27,
 
        0        // eod
 };
@@ -147,10 +151,11 @@ void InteractiveViewerWidget::qt_static_metacall(QObject *_o, QMetaObject::Call 
         case 9: _t->set_t2_mouse_mode((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->NoEdit(); break;
         case 11: _t->SeamEdit(); break;
-        case 12: _t->AddSeam(); break;
-        case 13: _t->UndoSeam(); break;
-        case 14: _t->MeshCut(); break;
-        case 15: _t->Click_to_BPE((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 12: _t->GeodesicEdit(); break;
+        case 13: _t->AddSeam(); break;
+        case 14: _t->UndoSeam(); break;
+        case 15: _t->MeshCut(); break;
+        case 16: _t->Click_to_BPE((*reinterpret_cast< std::string(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -239,13 +244,13 @@ int InteractiveViewerWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 17)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 16;
+        _id -= 17;
     }
     return _id;
 }

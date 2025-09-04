@@ -27,6 +27,7 @@ signals:
 
 	void NoEditSignal();
 	void SeamEditSignal();
+	void GeodesicEditSignal();
 	void AddSeamSignal();
 	void UndoSeamSignal();
 	void MeshCutSignal();
@@ -58,6 +59,7 @@ private:
 	QGroupBox* cut_mesh_box_;
 	QRadioButton* rb_non_edit_;
 	QRadioButton* rb_seam_edit_;
+	QRadioButton* rb_geodesic_edit_;
 
 	void CreateViewPatchBox(void);
 	QGroupBox* view_patch_box_;

@@ -41,6 +41,7 @@ void MainViewerWidget::initViewerWindow()
 	
 	connect(MeshParam, SIGNAL(NoEditSignal()), MeshViewer, SLOT(NoEdit()));
 	connect(MeshParam, SIGNAL(SeamEditSignal()), MeshViewer, SLOT(SeamEdit()));
+	connect(MeshParam, SIGNAL(GeodesicEditSignal()), MeshViewer, SLOT(GeodesicEdit()));
 	connect(MeshParam, SIGNAL(AddSeamSignal()), MeshViewer, SLOT(AddSeam()));
 	connect(MeshParam, SIGNAL(UndoSeamSignal()), MeshViewer, SLOT(UndoSeam()));
 	connect(MeshParam, SIGNAL(MeshCutSignal()), MeshViewer, SLOT(MeshCut()));

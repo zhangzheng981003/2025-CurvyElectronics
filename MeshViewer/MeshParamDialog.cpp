@@ -70,14 +70,18 @@ void MeshParamDialog::CreateCutMeshBox(void)
 	rb_non_edit_ = new QRadioButton(tr("Non"));
 	connect(rb_non_edit_, SIGNAL(clicked()), SIGNAL(NoEditSignal()));
 
-	rb_seam_edit_ = new QRadioButton(tr("Edit"));
+	rb_seam_edit_ = new QRadioButton(tr("Dijkstra"));
 	connect(rb_seam_edit_, SIGNAL(clicked()), SIGNAL(SeamEditSignal()));
+
+	rb_geodesic_edit_ = new QRadioButton(tr("Geodesic"));
+	connect(rb_geodesic_edit_, SIGNAL(clicked()), SIGNAL(GeodesicEditSignal()));
 
 	QButtonGroup* bg_show_ = new QButtonGroup();
 	bg_show_->setExclusive(true);
 	rb_non_edit_->setChecked(true);
 	bg_show_->addButton(rb_non_edit_);
 	bg_show_->addButton(rb_seam_edit_);
+	bg_show_->addButton(rb_geodesic_edit_);
 
 	QPushButton* pb_add = new QPushButton(tr("Add"));
 	connect(pb_add, SIGNAL(clicked()), SIGNAL(AddSeamSignal()));
@@ -91,9 +95,10 @@ void MeshParamDialog::CreateCutMeshBox(void)
 	QGridLayout* layout_field = new QGridLayout();
 	layout_field->addWidget(rb_non_edit_, 0, 0, 1, 1);
 	layout_field->addWidget(rb_seam_edit_, 0, 1, 1, 1);
+	layout_field->addWidget(rb_geodesic_edit_, 0, 2, 1, 1);
 	layout_field->addWidget(pb_undo, 1, 0, 1, 1);
 	layout_field->addWidget(pb_add, 1, 1, 1, 1);
-	layout_field->addWidget(pb_cut, 2, 0, 1, 2);
+	layout_field->addWidget(pb_cut, 2, 0, 1, 3);
 
 	cut_mesh_box_->setLayout(layout_field);
 }

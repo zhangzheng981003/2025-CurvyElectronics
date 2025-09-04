@@ -7,7 +7,7 @@
 #include "Compute\CutMesh.h"
 #include "Compute\SeamMesh.h"
 #include <io.h>
-
+#include "Compute\CGAL_Geodesic_Path.h"
 struct Line {
 	double x1;
 	double y1;
@@ -33,7 +33,8 @@ public:
 			
 			if (dij_path) delete dij_path;
 			dij_path = new Dijkstra_Path(mesh);
-			
+			if (geo_path) delete geo_path;
+			geo_path = new CGAL_Geodesic_Path(mesh);
 			if (seam_mesh_) delete seam_mesh_;
 			seam_mesh_ = new SeamMesh(mesh);
 
@@ -44,6 +45,8 @@ public:
 			path_he.clear();
 			temp_path.clear();
 			temp_end_v = VH(-1);
+			geo_path_points.clear();
+			temp_geo_path.clear();
 		}
 
 		return read_status;
@@ -289,6 +292,12 @@ public slots:
 		edit_mode_ = EditMode::SEAM_EDIT;
 	}
 
+	void GeodesicEdit()
+	{
+		std::cout << "Geodesic edit!" << std::endl;
+		edit_mode_ = EditMode::GEODESIC_EDIT;
+	}
+
 	void AddSeam()
 	{
 		std::cout << "Add Seam!" << std::endl;
@@ -329,6 +338,8 @@ public slots:
 			path_he.clear();
 			temp_path.clear();
 			temp_end_v = VH(-1);
+			geo_path_points.clear();
+			temp_geo_path.clear();
 		}
 		else if (edit_mode_ == EditMode::SEAM_EDIT)
 		{
@@ -345,6 +356,24 @@ public slots:
 				start_v.pop_back();
 
 				temp_path.clear();
+				temp_end_v = VH(-1);
+			}
+		}
+		else if (edit_mode_ == EditMode::GEODESIC_EDIT)
+		{
+			if (geo_path_points.size() > 0)
+			{
+				geo_path_points.pop_back();
+				start_v.pop_back();
+
+				temp_geo_path.clear();
+				temp_end_v = VH(-1);
+			}
+			else if (start_v.size() > 0)
+			{
+				start_v.pop_back();
+
+				temp_geo_path.clear();
 				temp_end_v = VH(-1);
 			}
 		}
@@ -590,7 +619,7 @@ public:
 private:
 	std::string fileDirPath = "";
 
-	enum class EditMode {NON_EDIT, SEAM_EDIT};
+	enum class EditMode { NON_EDIT, SEAM_EDIT, GEODESIC_EDIT };
 	EditMode edit_mode_ = EditMode::NON_EDIT;
 
 	std::vector<OpenMesh::VertexHandle> start_v;
@@ -599,7 +628,9 @@ private:
 	std::vector<OpenMesh::HalfedgeHandle> temp_path;
 
 	Dijkstra_Path* dij_path = NULL;
-
+	std::vector<std::vector<OpenMesh::Vec3d>> geo_path_points;
+	std::vector<OpenMesh::Vec3d> temp_geo_path;
+	CGAL_Geodesic_Path* geo_path = NULL;
 	int cur_patch_id = 0;
 
 	// colormap

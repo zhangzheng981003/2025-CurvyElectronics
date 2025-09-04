@@ -114,6 +114,9 @@
     <ClCompile Include="Compute\SeamMesh.cpp">
       <Filter>CutMesh</Filter>
     </ClCompile>
+    <ClCompile Include="Compute\CGAL_Geodesic_Path.cpp">
+      <Filter>CutMesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="surfacemeshprocessing.qrc">
@@ -188,6 +191,9 @@
       <Filter>CutMesh</Filter>
     </ClInclude>
     <ClInclude Include="Compute\SeamMesh.h">
+      <Filter>CutMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Compute\CGAL_Geodesic_Path.h">
       <Filter>CutMesh</Filter>
     </ClInclude>
   </ItemGroup>
